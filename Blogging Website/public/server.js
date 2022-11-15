@@ -20,9 +20,11 @@ app.get('/editor', (req, res) => {
     res.sendFile(path.join(initial_path, "editor.html"));
 });
 
-app.get("/:blog", (req, res) => {
-    res.sendFile(path.join(initial_path, "blog.html"));
-})
+app.get('/admin', (req, res) => {
+    res.sendFile(path.join(initial_path, "dashboard.html"));
+});
+
+
 
 //app.use((req, res) => {
 //    res.json("404");
@@ -48,6 +50,18 @@ app.post('/upload', (req, res) => {
         }
     })
 })
+
+
+app.get("/:blog", (req, res) => {
+    res.sendFile(path.join(initial_path, "blog.html"));
+})
+
+
+
+app.use((req, res) => {
+    res.json("404");
+})
+
 
 //PORT
 
